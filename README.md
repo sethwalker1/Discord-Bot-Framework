@@ -3,7 +3,7 @@
 A scalable Discord bot framework: easily expandable with modular components.
 This is a barebones template. If you want to see something more fleshed out,
 check out
-[this translation bot fork](https://github.com/sethwalker1/Translation-Discord-Bot).
+[this translation bot fork](https://github.com/sethwalker1/Discord-Translation-Bot).
 
 ## Getting Started
 
