@@ -47,7 +47,7 @@ export default class Client {
 
       // Load and validate each command asynchronously for better performance
       return await Promise.all(
-        commandFiles.map(async file => {
+        commandFiles.map(file => new Promise(async resolve => {
           const filePath = path.join(directory, file);
           const { default: command } = await import(`file://${filePath}`);
 
@@ -55,8 +55,8 @@ export default class Client {
           if (!('data' in command && 'execute' in command))
             return console.warn(`The command at ${filePath} is invalid!`);
 
-          return command;
-        })
+          resolve(command);
+        }))
       );
     }
 
