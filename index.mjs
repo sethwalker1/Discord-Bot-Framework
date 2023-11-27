@@ -11,10 +11,9 @@ import Client from './src/Client.mjs';
 // Load .env file
 const productionEnvPath = path.join(process.cwd(), '.env.production');
 dotenv.config({
-  path: path.join(
-    process.cwd(),
-    fs.existsSync(productionEnvPath) ? productionEnvPath : '.env'
-  ),
+  path: fs.existsSync(productionEnvPath)
+    ? productionEnvPath
+    : path.join(process.cwd(), '.env'),
 });
 
 // Override .env file with .development.env file if in development mode
