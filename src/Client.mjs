@@ -20,7 +20,7 @@ export default class Client {
         GatewayIntentBits.DirectMessages,
         GatewayIntentBits.Guilds,
         GatewayIntentBits.GuildMessages,
-        GatewayIntentBits.MessageContent
+        GatewayIntentBits.MessageContent,
       ],
       partials: [Partials.Message, Partials.User],
     });
@@ -47,7 +47,7 @@ export default class Client {
 
       // Load and validate each command asynchronously for better performance
       return await Promise.all(
-        commandFiles.map(file => new Promise(async resolve => {
+        commandFiles.map(async file => {
           const filePath = path.join(directory, file);
           const { default: command } = await import(`file://${filePath}`);
 
@@ -55,8 +55,8 @@ export default class Client {
           if (!('data' in command && 'execute' in command))
             return console.warn(`The command at ${filePath} is invalid!`);
 
-          resolve(command);
-        }))
+          return command;
+        })
       );
     }
 
@@ -68,12 +68,8 @@ export default class Client {
       // Skip invalid commands
       if (!command) continue;
 
-      // Build the command name and subcommand path
-      const commandName = path.basename(
-        commandsPath,
-        path.extname(commandsPath)
-      );
-      const subcommandPath = path.join(subcommandsPath, commandName);
+      // Build the subcommand path
+      const subcommandPath = path.join(subcommandsPath, command.name);
 
       // Load subcommands if they exist
       if (fs.existsSync(subcommandPath)) {
@@ -121,11 +117,8 @@ export default class Client {
           });
 
         // Register the event
-        if (event.once) {
-          Client.client.once(event.name, handler);
-        } else {
-          Client.client.on(event.name, handler);
-        }
+        if (event.once) Client.client.once(event.name, handler);
+        else Client.client.on(event.name, handler);
       })
     );
 
