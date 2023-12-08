@@ -50,7 +50,7 @@ To create a subcommand, you need to follow a few steps.
    - `execute`: An async class method that is called when the subcommand is
    executed.
 
-> 💡 The `execute` method in the `Command` class supports loading subcommands by default. You're need to implement the logic yourself if your command overrides the `execute` method.
+> 💡 The `execute` method in the `Command` class supports loading subcommands by default. You need to implement the logic yourself if your command overrides the `execute` method.
 
 ### Events
 
@@ -63,4 +63,5 @@ create a message handler:
 1. Create a new `.mjs` file in the `src/events/messageHandlers` directory
 2. Inside your new message handler file, export a method with your custom logic.
 3. Your method needs to filter each message and return `null` when the message
-   doesn't match your criteria, as it will be executed for every message.
+   doesn't match your criteria, as every handler will be executed for every
+   message.
