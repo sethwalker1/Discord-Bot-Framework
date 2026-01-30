@@ -6,3 +6,7 @@ updates:
       interval: "weekly"
     allow:
       - dependency-type: "all"
+    groups:
+      npm-all:
+        patterns:
+          - "*"
