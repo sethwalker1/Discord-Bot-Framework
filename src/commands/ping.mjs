@@ -1,4 +1,4 @@
-import { SlashCommandBuilder } from 'discord.js';
+import { MessageFlags, SlashCommandBuilder } from 'discord.js';
 import { fileURLToPath } from 'url';
 import Command from '../modules/Command.mjs';
 
@@ -16,13 +16,12 @@ export default new (class PingCommand extends Command {
 
   async execute(interaction) {
     // Defer the reply to let the user know the bot is working
-    await interaction.deferReply({ ephemeral: true });
+    await interaction.deferReply({ flags: MessageFlags.Ephemeral });
 
     // Reply with the result
     let content = `Pong!`;
     await interaction.editReply({
       content,
-      ephemeral: true,
     });
 
     // Return the result for logging
