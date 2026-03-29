@@ -26,6 +26,7 @@
   "resolutions": {
     "undici": "6.24.0",
     "minimatch": "9.0.7",
-    "tar": "7.5.11"
+    "tar": "7.5.11",
+    "picomatch": ">=4.0.4"
   }
 }
