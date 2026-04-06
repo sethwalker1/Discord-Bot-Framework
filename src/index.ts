@@ -6,7 +6,7 @@ import fs from 'fs';
 import path from 'path';
 import * as Sentry from '@sentry/node';
 import { nodeProfilingIntegration } from '@sentry/profiling-node';
-import Client from './src/Client.mjs';
+import Client from './Client.js';
 
 // Load .env file
 const productionEnvPath = path.join(process.cwd(), '.env.production');
@@ -19,18 +19,6 @@ config({
 
 // Override .env file with .development.env file if in development mode
 if (process.env.NODE_ENV !== 'production') config({ path: '.env', override: true, quiet: true });
-
-// Override console.log to include a timestamp
-console.log = console.info = (
-  oldLog =>
-  (...args) => {
-    const timestamp = new Date()
-      .toLocaleString(process.env.LOCALE, { timeZone: process.env.TIMEZONE })
-      .split(', ')
-      .join(' ');
-    oldLog.apply(console, [`[${timestamp}]`, ...args]);
-  }
-)(console.log);
 
 /**
  * Initiation

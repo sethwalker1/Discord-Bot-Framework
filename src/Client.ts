@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import {
   Client as Discord,
   Collection,
@@ -8,14 +9,21 @@ import {
   REST,
   Routes,
 } from 'discord.js';
+import type { SlashCommandBuilder } from 'discord.js';
 import * as Sentry from '@sentry/node';
+import { logger } from './modules/Logger.js';
+import type { BotCommand, BotEvent } from './types.js';
 
-const __extname = path.extname(import.meta.url);
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const __extname = path.extname(__filename);
 
 export default class Client {
+  static client: Discord<true>;
+
   static async init() {
     // Build the Discord client
-    Client.client = new Discord({
+    const client = new Discord({
       intents: [
         GatewayIntentBits.DirectMessages,
         GatewayIntentBits.Guilds,
@@ -24,23 +32,24 @@ export default class Client {
       ],
       partials: [Partials.Message, Partials.User],
     });
-    Client.client.commands = new Collection();
+    client.commands = new Collection<string, BotCommand>();
 
     // Register commands and events
-    await Client.registerCommands();
-    await Client.registerEvents();
+    await Client.registerCommands(client);
+    await Client.registerEvents(client);
 
     // Log into discord
-    Client.client.login(process.env.DISCORD_TOKEN);
+    client.login(process.env.DISCORD_TOKEN);
+    Client.client = client as Discord<true>;
   }
 
-  static async registerCommands() {
+  static async registerCommands(client: Discord) {
     // Build the command and subcommands paths
-    const commandsPath = path.join(process.cwd(), 'src/commands');
+    const commandsPath = path.join(__dirname, 'commands');
     const subcommandsPath = path.join(commandsPath, 'subcommands');
 
     // Function to load and validate commands
-    async function loadCommands(directory) {
+    async function loadCommands(directory: string) {
       const commandFiles = fs
         .readdirSync(directory)
         .filter(file => file.endsWith(__extname));
@@ -52,10 +61,12 @@ export default class Client {
           const { default: command } = await import(`file://${filePath}`);
 
           // All valid commands must have a data and execute property
-          if (!('data' in command && 'execute' in command))
-            return console.warn(`The command at ${filePath} is invalid!`);
+          if (!('data' in command && 'execute' in command)) {
+            logger.warn(`The command at ${filePath} is invalid!`);
+            return undefined;
+          }
 
-          return command;
+          return command as BotCommand;
         })
       );
     }
@@ -75,28 +86,30 @@ export default class Client {
       if (fs.existsSync(subcommandPath)) {
         const subcommands = await loadCommands(subcommandPath);
         subcommands.forEach(subcommand => {
-          command.data = command.data.addSubcommand(subcommand.data);
+          if (!subcommand) return;
+          command.data = (command.data as SlashCommandBuilder).addSubcommand(
+            subcommand.data as unknown as (sub: import('discord.js').SlashCommandSubcommandBuilder) => import('discord.js').SlashCommandSubcommandBuilder
+          );
         });
       }
 
       // Register the command
-      Client.client.commands.set(command.data.name, command);
+      client.commands.set(command.data.name, command);
     }
 
-    // Register slash commands when in production
-    // Change `false` to `true` to manually register commands in development
-    if (process.env.NODE_ENV === 'production' || false) {
+    // Register slash commands when in production or when --register flag is passed
+    if (process.env.NODE_ENV === 'production' || process.argv.includes('--register')) {
       const rest = new REST().setToken(process.env.DISCORD_TOKEN);
       await rest.put(Routes.applicationCommands(process.env.CLIENT_ID), {
-        body: Client.client.commands.map(item => item.data.toJSON()),
+        body: client.commands.map(item => item.data.toJSON()),
       });
     }
 
-    console.info(`Registered ${Client.client.commands.size} commands!`);
+    logger.info(`Registered ${client.commands.size} commands!`);
   }
 
-  static async registerEvents() {
-    const eventsPath = path.join(process.cwd(), 'src/events');
+  static async registerEvents(client: Discord) {
+    const eventsPath = path.join(__dirname, 'events');
     const eventFiles = fs
       .readdirSync(eventsPath)
       .filter(file => file.endsWith(__extname));
@@ -105,23 +118,23 @@ export default class Client {
     await Promise.all(
       eventFiles.map(async file => {
         const filePath = path.join(eventsPath, file);
-        const { default: event } = await import(`file://${filePath}`);
+        const { default: event } = await import(`file://${filePath}`) as { default: BotEvent };
 
         // Prepare the event handler function
         // Note that the execute() function must be async,
         // or else the .catch() method will throw an error
-        const handler = async (...args) =>
-          await event.execute(...args).catch(err => {
-            console.error(err);
+        const handler = async (...args: unknown[]) =>
+          await event.execute(...args).catch((err: Error) => {
+            logger.error(err);
             Sentry.captureException(err);
           });
 
         // Register the event
-        if (event.once) Client.client.once(event.name, handler);
-        else Client.client.on(event.name, handler);
+        if (event.once) client.once(event.name, handler);
+        else client.on(event.name, handler);
       })
     );
 
-    console.info(`Registered ${eventFiles.length} events!`);
+    logger.info(`Registered ${eventFiles.length} events!`);
   }
 }

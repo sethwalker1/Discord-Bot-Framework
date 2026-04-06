@@ -7,15 +7,8 @@ yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
 
-# Yarn
-.yarn-integrity
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
-.pnp.*
+# Build output
+dist/
 
 # Dotenv environment variable files
 .env*
@@ -37,3 +30,4 @@ src/storage/
 
 # Miscellaneous
 *.xml
+/node_modules

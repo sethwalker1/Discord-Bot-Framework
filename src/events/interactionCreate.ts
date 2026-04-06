@@ -1,9 +1,10 @@
 import { Events } from 'discord.js';
-import Logging from '../modules/Logging.mjs';
+import type { Interaction } from 'discord.js';
+import Logging from '../modules/Logging.js';
 
 export default {
   name: Events.InteractionCreate,
-  async execute(interaction) {
+  async execute(interaction: Interaction) {
     // Execute a slash command
     if (!interaction.isChatInputCommand()) return;
 
@@ -22,7 +23,7 @@ export default {
       .then(async (result) => {
         await Logging.logCommand(interaction, result).catch(() => {});
       })
-      .catch(async (err) => {
+      .catch(async (err: Error) => {
         // Log the error in detail
         Logging.logCommand(interaction, err);
 

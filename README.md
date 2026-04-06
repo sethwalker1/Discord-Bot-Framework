@@ -9,7 +9,7 @@ check out
 
 1. Install dependencies
    ```bash
-   yarn install
+   pnpm install
    ```
 2. Rename the `.env.example` file in the root directory to `.env` and add your
    values. Every variable is required except for `SENTRY_DSN`, which is only
@@ -20,11 +20,12 @@ check out
 3. Start the bot
    - In production:
      ```bash
-     yarn start
+     pnpm build
+     pnpm start
      ```
    - In development:
      ```bash
-     yarn dev
+     pnpm dev
      ```
 4. Invite the bot to your server. You can generate an invite link from the
    [Discord Developer Portal](https://discord.com/developers/applications).
@@ -42,7 +43,7 @@ interface for defining commands and subcommands.
 To create a subcommand, you need to follow a few steps.
 
 1. Create a folder matching the base command's name in
-   `src/commands/subcommands` and create a new `.mjs` file matching the
+   `src/commands/subcommands` and create a new `.ts` file matching the
    subcommand's name.
 2. Inside your new subcommand file, export an object with:
    - `data`: An arrow method that is passed as an argument to the
@@ -60,7 +61,7 @@ class. The `execute` method is called when the event is triggered.
 The `messageCreate` event can dynamically load message handler modules. To
 create a message handler:
 
-1. Create a new `.mjs` file in the `src/events/messageHandlers` directory
+1. Create a new `.ts` file in the `src/events/messageHandlers` directory
 2. Inside your new message handler file, export a method with your custom logic.
 3. Your method needs to filter each message and return `null` when the message
    doesn't match your criteria, as every handler will be executed for every

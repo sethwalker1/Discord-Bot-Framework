@@ -1,7 +1,8 @@
-import { EmbedBuilder, WebhookClient } from 'discord.js';
+import { EmbedBuilder, GuildMember, WebhookClient } from 'discord.js';
+import type { ChatInputCommandInteraction } from 'discord.js';
 
 export default class Logging {
-  static getFullCommand(context) {
+  static getFullCommand(context: ChatInputCommandInteraction): string {
     const { commandName, options } = context;
     const subcommand = options.getSubcommand(false);
     const subcommandGroup = options.getSubcommandGroup();
@@ -14,13 +15,13 @@ export default class Logging {
     if (subcommand) fullCommand += ` ${subcommand}`;
 
     // Options
-    for (const option of options._hoistedOptions)
+    for (const option of options.data)
       fullCommand += ` ${option.name}:\`${option.value}\``;
 
     return fullCommand;
   }
 
-  static async delete(message) {
+  static async delete(message: string) {
     // Build the webhook client
     const webhookClient = new WebhookClient({
       url: process.env.LOGGING_WEBHOOK_URL,
@@ -30,7 +31,7 @@ export default class Logging {
     webhookClient.deleteMessage(message);
   }
 
-  static async logCommand(context, content) {
+  static async logCommand(context: ChatInputCommandInteraction, content: string | Error) {
     const isError = content instanceof Error;
 
     // Build the content field
@@ -53,7 +54,7 @@ export default class Logging {
     const embed = new EmbedBuilder()
       .setColor(isError ? 0xec6064 : 0xb7ce77)
       .setTitle(
-        `${context.member.displayName} → ${Logging.getFullCommand(context)}`
+        `${context.member instanceof GuildMember ? context.member.displayName : context.user.username} → ${Logging.getFullCommand(context)}`
       )
       .setFields([
         {
@@ -68,7 +69,7 @@ export default class Logging {
       ])
       .setFooter({
         text: `${context.user.username}  •  ID ${context.user.id}`,
-        iconURL: context.user.avatarURL(),
+        iconURL: context.user.avatarURL() ?? undefined,
       });
 
     // Log the message/error to the logging webhook
