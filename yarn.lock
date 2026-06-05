@@ -86,9 +86,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:^1.69.1":
-  version: 1.69.1
-  resolution: "@dotenvx/dotenvx@npm:1.69.1"
+"@dotenvx/dotenvx@npm:^1.71.0":
+  version: 1.71.0
+  resolution: "@dotenvx/dotenvx@npm:1.71.0"
   dependencies:
     commander: "npm:^11.1.0"
     dotenv: "npm:^17.2.1"
@@ -103,7 +103,7 @@ __metadata:
     yocto-spinner: "npm:^1.1.0"
   bin:
     dotenvx: src/cli/dotenvx.js
-  checksum: 9f248c3995a427903d4baef27eec4e7d32d5c20e6ae9e3c83b9b6168974bd849f3a5369750958258eefbf1dc160c10cf3e257761d8571bef28ca78f46643c67a
+  checksum: 8d18e51b307c7c011fcbdf8d2ced1fe86b3d1cd5550053a03d3758743dabc54aaaf6b27e9edcec477fc1f06362bfbfb1bdbf85244047f1d8178853bbbd7022d9
   languageName: node
   linkType: hard
 
@@ -312,19 +312,28 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/core@npm:10.55.0":
-  version: 10.55.0
-  resolution: "@sentry/core@npm:10.55.0"
-  checksum: 5b2c2d6fea82e33635a8fc39bddcd283105de2c895999ef93669926381de623bb68bcf4fa361e240fbb205798e5e763d64127fc221068cd38a10e963f929da5f
+"@sentry-internal/server-utils@npm:10.56.0":
+  version: 10.56.0
+  resolution: "@sentry-internal/server-utils@npm:10.56.0"
+  dependencies:
+    "@sentry/core": "npm:10.56.0"
+  checksum: b54919fa5c6da1b5446cdcd0eea58bffb67a9cb3730eb2d5c322f447a77c8e74c3a4be1c890b15fce51aabec1dbe4519640ffde30b19b94828716908387222ab
   languageName: node
   linkType: hard
 
-"@sentry/node-core@npm:10.55.0":
-  version: 10.55.0
-  resolution: "@sentry/node-core@npm:10.55.0"
+"@sentry/core@npm:10.56.0":
+  version: 10.56.0
+  resolution: "@sentry/core@npm:10.56.0"
+  checksum: ccdfc87928805c6c3468112c302001e8a316a1015a73582d05bb129d7520d9d36447bb982d416e917631a5b90fce998a6325c15efe39a12eb5ff008635cd2f7b
+  languageName: node
+  linkType: hard
+
+"@sentry/node-core@npm:10.56.0":
+  version: 10.56.0
+  resolution: "@sentry/node-core@npm:10.56.0"
   dependencies:
-    "@sentry/core": "npm:10.55.0"
-    "@sentry/opentelemetry": "npm:10.55.0"
+    "@sentry/core": "npm:10.56.0"
+    "@sentry/opentelemetry": "npm:10.56.0"
     import-in-the-middle: "npm:^3.0.0"
   peerDependencies:
     "@opentelemetry/api": ^1.9.0
@@ -346,51 +355,52 @@ __metadata:
       optional: true
     "@opentelemetry/semantic-conventions":
       optional: true
-  checksum: 0686e46498218c97725e72fab1112f1fc2a290de85d23795ed42c80eafa1795e9fce090b4dad9fb8c4a4e141378b8454536fdf856d82ff09b2d53e4ca0049851
+  checksum: 8032b1c1c3f2fe2620fa989258c29bafd3b1997a4bf9f65d739c3aa2a9e3638271184c76fa9e61432c47e091ab2ad1cb961ee4fb8bf3d7d2582fb25a79c4f2ee
   languageName: node
   linkType: hard
 
-"@sentry/node@npm:10.55.0, @sentry/node@npm:^10.55.0":
-  version: 10.55.0
-  resolution: "@sentry/node@npm:10.55.0"
+"@sentry/node@npm:10.56.0, @sentry/node@npm:^10.56.0":
+  version: 10.56.0
+  resolution: "@sentry/node@npm:10.56.0"
   dependencies:
     "@opentelemetry/api": "npm:^1.9.1"
     "@opentelemetry/core": "npm:^2.6.1"
     "@opentelemetry/instrumentation": "npm:^0.214.0"
     "@opentelemetry/sdk-trace-base": "npm:^2.6.1"
     "@opentelemetry/semantic-conventions": "npm:^1.40.0"
-    "@sentry/core": "npm:10.55.0"
-    "@sentry/node-core": "npm:10.55.0"
-    "@sentry/opentelemetry": "npm:10.55.0"
+    "@sentry-internal/server-utils": "npm:10.56.0"
+    "@sentry/core": "npm:10.56.0"
+    "@sentry/node-core": "npm:10.56.0"
+    "@sentry/opentelemetry": "npm:10.56.0"
     import-in-the-middle: "npm:^3.0.0"
-  checksum: 8830f8b5f4728203a82f2077b965e733b7b7781b0b41dfb6096202f8cddf67b1c912c712a6bda9fae20825d30568aa8cfa5c7cb1281fea0f3f946861376774e1
+  checksum: b065ed3539326cef0ecd368fa79e421656a3c0117d07be6fcbec88a41481bc74e86d2b5986b1ced525cb33dfc06378d835e4c32a892f030c38f2613677468a32
   languageName: node
   linkType: hard
 
-"@sentry/opentelemetry@npm:10.55.0":
-  version: 10.55.0
-  resolution: "@sentry/opentelemetry@npm:10.55.0"
+"@sentry/opentelemetry@npm:10.56.0":
+  version: 10.56.0
+  resolution: "@sentry/opentelemetry@npm:10.56.0"
   dependencies:
-    "@sentry/core": "npm:10.55.0"
+    "@sentry/core": "npm:10.56.0"
   peerDependencies:
     "@opentelemetry/api": ^1.9.0
     "@opentelemetry/core": ^1.30.1 || ^2.1.0
     "@opentelemetry/sdk-trace-base": ^1.30.1 || ^2.1.0
     "@opentelemetry/semantic-conventions": ^1.39.0
-  checksum: 1f96c3ec4a17fb0673cf7289634e47031d6159c5370c663d6713d24e9d21b2c877541090a78437d465ca29ea543d7376d761dcee6a72cc057fad1f41a4c099ce
+  checksum: 1b8a9b93a945ba0471181512253dc4231b2c2f5d818af81c1f00f42b506882fdee2ef4e28b4d325863f3e1df4df366c3ecaf2b37d0d666185bf2f13c9b01615f
   languageName: node
   linkType: hard
 
-"@sentry/profiling-node@npm:^10.55.0":
-  version: 10.55.0
-  resolution: "@sentry/profiling-node@npm:10.55.0"
+"@sentry/profiling-node@npm:^10.56.0":
+  version: 10.56.0
+  resolution: "@sentry/profiling-node@npm:10.56.0"
   dependencies:
     "@sentry-internal/node-cpu-profiler": "npm:^2.4.0"
-    "@sentry/core": "npm:10.55.0"
-    "@sentry/node": "npm:10.55.0"
+    "@sentry/core": "npm:10.56.0"
+    "@sentry/node": "npm:10.56.0"
   bin:
     sentry-prune-profiler-binaries: scripts/prune-profiler-binaries.js
-  checksum: 0a6f9ac79d43552b5a76c115e3fea6793dff6386f213538aaa9bc46d4e1a3ba89cc3b41503c404696f3d8eea3f71213b27b1817f41f290ce46088ce2bf4b9429
+  checksum: 82690dcc1ecd4db3407836df071975671d0713d56078063fb61e3e7f5720acbb51bc0b981a90bfc2c0c1581897760c7ac837cade2b52dd27a4b14b8329bbc744
   languageName: node
   linkType: hard
 
@@ -677,9 +687,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "discord-bot-template@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:^1.69.1"
-    "@sentry/node": "npm:^10.55.0"
-    "@sentry/profiling-node": "npm:^10.55.0"
+    "@dotenvx/dotenvx": "npm:^1.71.0"
+    "@sentry/node": "npm:^10.56.0"
+    "@sentry/profiling-node": "npm:^10.56.0"
     cross-env: "npm:^10.1.0"
     discord.js: "npm:^14.26.4"
     nodemon: "npm:^3.1.14"
@@ -974,14 +984,14 @@ __metadata:
   linkType: hard
 
 "import-in-the-middle@npm:^3.0.0":
-  version: 3.0.0
-  resolution: "import-in-the-middle@npm:3.0.0"
+  version: 3.0.1
+  resolution: "import-in-the-middle@npm:3.0.1"
   dependencies:
     acorn: "npm:^8.15.0"
     acorn-import-attributes: "npm:^1.9.5"
     cjs-module-lexer: "npm:^2.2.0"
     module-details-from-path: "npm:^1.0.4"
-  checksum: 0bf1f22d00a080e7f651db8c5d136aa4aca6829397769f22fb544a67d9117b1c78590f180a690eb19eb0cfb4a558beac66b6508d346cccc91e1e5f75c934e9de
+  checksum: 4acad9839c507021820c3cacc88b113e9d927633fa004fef54161297b57e6f55b6d20765362ef5be103fc5acd7f765b21e5a19cb3645f077d1d82a60f4a4c32d
   languageName: node
   linkType: hard
 
@@ -1475,11 +1485,11 @@ __metadata:
   linkType: hard
 
 "semver@npm:^7.3.5, semver@npm:^7.5.3":
-  version: 7.8.1
-  resolution: "semver@npm:7.8.1"
+  version: 7.8.2
+  resolution: "semver@npm:7.8.2"
   bin:
     semver: bin/semver.js
-  checksum: 3244f6c4cb3f8126fea0426d353829ed4967e41e1f4696337c6fdcad87426466fe2badaf49d7dc85849acfc496ea0599432a4aecc33802d2d774e723acfa30e6
+  checksum: 52221d8f1cadacda3cc3f0a2e7f7146e0442c7f4219acb25970bed055f5d0a6afbba5f22e293b078c2e93fca3dce0a08b088485e8b75d32a165f16c3627091c8
   languageName: node
   linkType: hard
 
