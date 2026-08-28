@@ -5,19 +5,19 @@ __metadata:
   version: 8
   cacheKey: 10
 
-"@apm-js-collab/code-transformer-bundler-plugins@npm:0.7.1":
-  version: 0.7.1
-  resolution: "@apm-js-collab/code-transformer-bundler-plugins@npm:0.7.1"
+"@apm-js-collab/code-transformer-bundler-plugins@npm:^0.7.3":
+  version: 0.7.4
+  resolution: "@apm-js-collab/code-transformer-bundler-plugins@npm:0.7.4"
   dependencies:
-    "@apm-js-collab/code-transformer": "npm:^0.18.0"
+    "@apm-js-collab/code-transformer": "npm:^0.18.1"
     es-module-lexer: "npm:^2.1.0"
     magic-string: "npm:^0.30.21"
     module-details-from-path: "npm:^1.0.4"
-  checksum: 5228fa60958139763bfc8e91d6297ab47b264cad10aaaad3d50af40dc230338437e298ba90be03822f34068b21938972fa42659010ef401a03772750b8034c38
+  checksum: cb3d85584bdce93ffff95a48de4f2460d8080d8041c76649cea9268923f14c63087dbf495337414a4b7415956f8c46ac3932140ea619d07d32231ccad4a86f69
   languageName: node
   linkType: hard
 
-"@apm-js-collab/code-transformer@npm:^0.18.0":
+"@apm-js-collab/code-transformer@npm:^0.18.0, @apm-js-collab/code-transformer@npm:^0.18.1":
   version: 0.18.1
   resolution: "@apm-js-collab/code-transformer@npm:0.18.1"
   dependencies:
@@ -125,23 +125,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@dotenvx/dotenvx@npm:^2.19.0":
-  version: 2.19.0
-  resolution: "@dotenvx/dotenvx@npm:2.19.0"
+"@dotenvx/dotenvx@npm:^2.21.0":
+  version: 2.21.0
+  resolution: "@dotenvx/dotenvx@npm:2.21.0"
   dependencies:
-    "@dotenvx/primitives": "npm:^2.1.1"
+    "@dotenvx/primitives": "npm:^2.2.0"
     "@dotenvx/tooling": "npm:^1.0.3"
     yocto-spinner: "npm:^1.2.1"
   bin:
     dotenvx: src/cli/dotenvx.js
-  checksum: ea6005ead5f13c4ae823cf56114f48993cc075e07673072c4410e928aaebdd7a9da31a26e27e5b4cfbae061d09878c05a8d3c86223b2f50aecfb7caa64890e42
+    dx: src/cli/dotenvx.js
+  checksum: 2680cbb8d6d5afa324f51e128f042b591c83ccd92dba11c61fa41aeb17c45a58d430cc93fdfd1a6bf91e1a2b2849a17ed271450929f96a7eab6ca1572e3288fe
   languageName: node
   linkType: hard
 
-"@dotenvx/primitives@npm:^2.1.1":
-  version: 2.1.2
-  resolution: "@dotenvx/primitives@npm:2.1.2"
-  checksum: 34627cf9e2406c1e514fde9e01eff08ddef6079307390266a90675386cf06df4ae0b16a8824e5627fd01e6031d7465ddd1a6cc50d0dfe6ba378ea726a1d5f3f7
+"@dotenvx/primitives@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "@dotenvx/primitives@npm:2.2.0"
+  checksum: 77425cd0589b5bc85a9bfcc92d7de14e8466e35fddb42a9dae79a978e3ceb59ece65a6b2558de94cd6071cb5aedb2b24bbdfcd7f93622ebea525f8e712c99e68
   languageName: node
   linkType: hard
 
@@ -335,22 +336,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sentry/core@npm:10.68.0":
-  version: 10.68.0
-  resolution: "@sentry/core@npm:10.68.0"
+"@sentry/core@npm:10.71.0":
+  version: 10.71.0
+  resolution: "@sentry/core@npm:10.71.0"
   dependencies:
     "@sentry/conventions": "npm:^0.16.0"
-  checksum: a06bf20611476c5fdbed67faf6e042f51f40cb200c82c4ac2ced3d4d433b55c8bb5c5a14a0c780a84978da7935aecac762914112d227da47385640feb68b1844
+  checksum: 28a1d769840cc798e3d610d1059b365fbdb2b86d3522c82d7bd0d434f2a05080d407bd3aeda04fe9b86e8aefaa7e4015a0cabe332dd81c1696208ad32bcc5557
   languageName: node
   linkType: hard
 
-"@sentry/node-core@npm:10.68.0":
-  version: 10.68.0
-  resolution: "@sentry/node-core@npm:10.68.0"
+"@sentry/node-core@npm:10.71.0":
+  version: 10.71.0
+  resolution: "@sentry/node-core@npm:10.71.0"
   dependencies:
     "@sentry/conventions": "npm:^0.16.0"
-    "@sentry/core": "npm:10.68.0"
-    "@sentry/opentelemetry": "npm:10.68.0"
+    "@sentry/core": "npm:10.71.0"
+    "@sentry/opentelemetry": "npm:10.71.0"
     import-in-the-middle: "npm:^3.0.0"
   peerDependencies:
     "@opentelemetry/api": ^1.9.0
@@ -369,75 +370,75 @@ __metadata:
       optional: true
     "@opentelemetry/sdk-trace-base":
       optional: true
-  checksum: f05328ba1ee1d70017deb08b5e6b2402b08ca31f1ba6b02391bdc4ecabe3750916216bed3e20a33eb3f80a86f4486b1146fb293aa346411813262b49d23a9e7d
+  checksum: 6ba752f074315d70ff9e024f2174638cfc3a9fadb1d406230a8a93cd3ac0bb110cd2c5ba5511a7f4f69e7c718f1e7fd6284745edcbcc6a1d6b7f20becea8c968
   languageName: node
   linkType: hard
 
-"@sentry/node-cpu-profiler@npm:^2.4.2":
-  version: 2.4.2
-  resolution: "@sentry/node-cpu-profiler@npm:2.4.2"
+"@sentry/node-cpu-profiler@npm:^2.4.3":
+  version: 2.4.3
+  resolution: "@sentry/node-cpu-profiler@npm:2.4.3"
   dependencies:
     detect-libc: "npm:^2.0.3"
     node-abi: "npm:^3.73.0"
     node-gyp: "npm:latest"
-  checksum: 7a65c0bd6c0b928ae14f1bf51175fd6603d537af4c0207043523a6b8e8f7f4cff40362bfab287131131fb1419cbac790a6176c683095a826dbd8b70daeeb8620
+  checksum: c5405ad9f368bcf0a572cadafba1c8ad134dd4d5a0ba82c39098c338844bcb554ddb207a9059813076846e0e750477675f120ec9d8c68321e5821bc56032e4c7
   languageName: node
   linkType: hard
 
-"@sentry/node@npm:10.68.0, @sentry/node@npm:^10.68.0":
-  version: 10.68.0
-  resolution: "@sentry/node@npm:10.68.0"
+"@sentry/node@npm:10.71.0, @sentry/node@npm:^10.71.0":
+  version: 10.71.0
+  resolution: "@sentry/node@npm:10.71.0"
   dependencies:
     "@opentelemetry/api": "npm:^1.9.1"
     "@opentelemetry/instrumentation": "npm:^0.220.0"
     "@opentelemetry/sdk-trace-base": "npm:^2.9.0"
     "@sentry/conventions": "npm:^0.16.0"
-    "@sentry/core": "npm:10.68.0"
-    "@sentry/node-core": "npm:10.68.0"
-    "@sentry/opentelemetry": "npm:10.68.0"
-    "@sentry/server-utils": "npm:10.68.0"
+    "@sentry/core": "npm:10.71.0"
+    "@sentry/node-core": "npm:10.71.0"
+    "@sentry/opentelemetry": "npm:10.71.0"
+    "@sentry/server-utils": "npm:10.71.0"
     import-in-the-middle: "npm:^3.0.0"
-  checksum: 2e3c7b723ba2f7ff4e7a79bd4c59b9ae09a3e61b9e4c6170bf82b357b4dd509c70aece9d5cbff3b1b908b6351a56835c556e346cf69140b89d1c986c8ee21339
+  checksum: 541828e79f0de09e093b8e1a679845d425b7cf9455c98c41b3f7bb2446be9c3ecb85ff4a74c2958a3203bc2e4e609fe1a2d4203b40fb94d7432aaebfc801e41c
   languageName: node
   linkType: hard
 
-"@sentry/opentelemetry@npm:10.68.0":
-  version: 10.68.0
-  resolution: "@sentry/opentelemetry@npm:10.68.0"
+"@sentry/opentelemetry@npm:10.71.0":
+  version: 10.71.0
+  resolution: "@sentry/opentelemetry@npm:10.71.0"
   dependencies:
     "@sentry/conventions": "npm:^0.16.0"
-    "@sentry/core": "npm:10.68.0"
+    "@sentry/core": "npm:10.71.0"
   peerDependencies:
     "@opentelemetry/api": ^1.9.0
     "@opentelemetry/core": ^1.30.1 || ^2.1.0
     "@opentelemetry/sdk-trace-base": ^1.30.1 || ^2.1.0
-  checksum: 4decea42c897b638b4914815665be7353831d18770a6a3502708f1aef21ac63093f818f962a6b05c675474e0bb135f01035486a7275a44552ee051a3fd9f3a4b
+  checksum: 1e4657bc382b1541a91422f3989d007b25f815bbb88fb171f82ddda60a6821cb7b113e720bfbc90e704710bcdf245951c53e34600ad2349d80f20828b819fb7d
   languageName: node
   linkType: hard
 
-"@sentry/profiling-node@npm:^10.68.0":
-  version: 10.68.0
-  resolution: "@sentry/profiling-node@npm:10.68.0"
+"@sentry/profiling-node@npm:^10.71.0":
+  version: 10.71.0
+  resolution: "@sentry/profiling-node@npm:10.71.0"
   dependencies:
-    "@sentry/core": "npm:10.68.0"
-    "@sentry/node": "npm:10.68.0"
-    "@sentry/node-cpu-profiler": "npm:^2.4.2"
+    "@sentry/core": "npm:10.71.0"
+    "@sentry/node": "npm:10.71.0"
+    "@sentry/node-cpu-profiler": "npm:^2.4.3"
   bin:
     sentry-prune-profiler-binaries: scripts/prune-profiler-binaries.js
-  checksum: 0fbd93c652b52f9fb329f04b603007488a101dd155db0f535e083b9c75654aa244fbb7db5ccf1f0a7abaa18372956be6e47cd95cf386f7a9c8589ef60b6fcaac
+  checksum: 6fba7fd58bf7369e91f66081bfccec344ac7106dd3d3cb503eab3657fd104d44115244be5110dc953c919cfb6f3f3cb248aaa658ce37a45f0779f20c40f0ce1c
   languageName: node
   linkType: hard
 
-"@sentry/server-utils@npm:10.68.0":
-  version: 10.68.0
-  resolution: "@sentry/server-utils@npm:10.68.0"
+"@sentry/server-utils@npm:10.71.0":
+  version: 10.71.0
+  resolution: "@sentry/server-utils@npm:10.71.0"
   dependencies:
-    "@apm-js-collab/code-transformer-bundler-plugins": "npm:0.7.1"
+    "@apm-js-collab/code-transformer-bundler-plugins": "npm:^0.7.3"
     "@apm-js-collab/tracing-hooks": "npm:^0.13.0"
     "@sentry/conventions": "npm:^0.16.0"
-    "@sentry/core": "npm:10.68.0"
+    "@sentry/core": "npm:10.71.0"
     meriyah: "npm:^6.1.4"
-  checksum: 7e7e4bd021d5a13c62050e18de549d8d7ece9b35de797f175c9d87d1b84a855c5eab54e6185f976f230b89afd3f4f1892f0a6c80f1bbf0159b782001d30e52af
+  checksum: 78e830bbe253922a8bb53a86cca44d9dcb4c8ade67f8ace2d9b0535cf579b749a7f206e8124d1ccc483085c11c2375db92054a41fe01fd35ededcdb128291ebe
   languageName: node
   linkType: hard
 
@@ -449,11 +450,11 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*":
-  version: 26.1.2
-  resolution: "@types/node@npm:26.1.2"
+  version: 26.4.0
+  resolution: "@types/node@npm:26.4.0"
   dependencies:
     undici-types: "npm:~8.3.0"
-  checksum: 2dd6d75b80c006deab4e381acc8cb2e3d634f10141f05fd6cadaabddd80a95f04aef7b00a574bd8fd5e08e940b899c23b91dd09a70b11a34a2762203b5eea25e
+  checksum: 90e2a82f8c17200c74515753ed48f6e13987b657d4c93e9b9922860a0abef0627b66037eb77d2a315d0255e9cd0115d71e791d13446ec02d93f85d8ab02dec69
   languageName: node
   linkType: hard
 
@@ -625,9 +626,9 @@ __metadata:
   linkType: hard
 
 "cjs-module-lexer@npm:^2.2.0":
-  version: 2.2.0
-  resolution: "cjs-module-lexer@npm:2.2.0"
-  checksum: fc8eb5c1919504366d8260a150d93c4e857740e770467dc59ca0cc34de4b66c93075559a5af65618f359187866b1be40e036f4e1a1bab2f1e06001c216415f74
+  version: 2.2.1
+  resolution: "cjs-module-lexer@npm:2.2.1"
+  checksum: 16601d6fc3a9bb6a5aba4fcc1fd4c194317f94c2bc869a0dfb0f64d01b6ff0c9011b3ba6c89805b3d4de246be371a102d95d0dad5e944a4a23ca87f5381fbd03
   languageName: node
   linkType: hard
 
@@ -698,9 +699,9 @@ __metadata:
   linkType: hard
 
 "discord-api-types@npm:^0.38.1, discord-api-types@npm:^0.38.33, discord-api-types@npm:^0.38.40, discord-api-types@npm:^0.38.49, discord-api-types@npm:^0.38.50":
-  version: 0.38.52
-  resolution: "discord-api-types@npm:0.38.52"
-  checksum: 0e02d41c90ce99f2bf4227ca4931707ba08a965e714b1d9e7e16f7985bf9b8942a49d989d5ab2e7691470457578e606af95070c671f5de4e43bca789c56b6529
+  version: 0.38.54
+  resolution: "discord-api-types@npm:0.38.54"
+  checksum: b7c718424bb8e0db434511d8483df112384b60f89406d690088fcacd05e135b92f2a8f289c77727a3e20a32fdb9611a36272b1e7c2ca4749d63d5d65c89ce1eb
   languageName: node
   linkType: hard
 
@@ -708,9 +709,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "discord-bot-template@workspace:."
   dependencies:
-    "@dotenvx/dotenvx": "npm:^2.19.0"
-    "@sentry/node": "npm:^10.68.0"
-    "@sentry/profiling-node": "npm:^10.68.0"
+    "@dotenvx/dotenvx": "npm:^2.21.0"
+    "@sentry/node": "npm:^10.71.0"
+    "@sentry/profiling-node": "npm:^10.71.0"
     cross-env: "npm:^10.1.0"
     discord.js: "npm:^14.27.0"
     nodemon: "npm:^3.1.14"
@@ -783,9 +784,9 @@ __metadata:
   linkType: hard
 
 "es-module-lexer@npm:^2.1.0, es-module-lexer@npm:^2.2.0":
-  version: 2.3.1
-  resolution: "es-module-lexer@npm:2.3.1"
-  checksum: 15bd9f6d70ec7f046a308b7fbeb56a1fd4bde09e6a46df0015caee58bd5888fc114029754e922ca68577b761890ac95cc450683424209464530cfe54f69b8566
+  version: 2.3.2
+  resolution: "es-module-lexer@npm:2.3.2"
+  checksum: 065246d6e2b2dfea3287650b5800a30326771e0d9d238570e81371d7ae8d53db239bccb2166e272926bba44917da7c66dd7407a5214d17b0af5269005b1fec52
   languageName: node
   linkType: hard
 
@@ -949,13 +950,13 @@ __metadata:
   linkType: hard
 
 "import-in-the-middle@npm:^3.0.0":
-  version: 3.3.2
-  resolution: "import-in-the-middle@npm:3.3.2"
+  version: 3.3.3
+  resolution: "import-in-the-middle@npm:3.3.3"
   dependencies:
     cjs-module-lexer: "npm:^2.2.0"
     es-module-lexer: "npm:^2.2.0"
     module-details-from-path: "npm:^1.0.4"
-  checksum: 46c4bb22c5b2342547d4efaa5f1d2dc69ca94feb361aac92bbbc26b796bdbbeb0dab81e5e78205b6147b1cf571dbe2b50f219d2977eba951b63469918b411d9f
+  checksum: d8bb529b3320c12e82285187032597cb4f3f00076e8c9b0c61b0bb72e727db83dfaa4fe439da13b03fd64f4ad594ddda8acc0c10e874812dce5b49939cc0be8b
   languageName: node
   linkType: hard
 
@@ -974,9 +975,9 @@ __metadata:
   linkType: hard
 
 "ip-address@npm:^10.1.1":
-  version: 10.4.0
-  resolution: "ip-address@npm:10.4.0"
-  checksum: 8a286dd112a88c372b10c706caca14dcf5ed029a11c3911062ad8937ca0f951aa513ecacf82e15ffcf6343749ae6c079dd9741282fc94033a06ff1b7bd6ce69a
+  version: 10.5.0
+  resolution: "ip-address@npm:10.5.0"
+  checksum: 239645a11ae56f1f8721df22fa852dec51039a0add5371a474ad858810a6b6a4924c9346e467821c4e614bc9b8c8947a58ba1fdfb155a7a30437a440072ffbf5
   languageName: node
   linkType: hard
 
@@ -1248,11 +1249,11 @@ __metadata:
   linkType: hard
 
 "node-abi@npm:^3.73.0":
-  version: 3.94.0
-  resolution: "node-abi@npm:3.94.0"
+  version: 3.95.0
+  resolution: "node-abi@npm:3.95.0"
   dependencies:
     semver: "npm:^7.3.5"
-  checksum: 2f32c86f81d499e887ca22015f7032880aafb6441b9fe0f90fe61a9fcdaa7b6c25ceb92eee9f9e782bb30a3b49cdb7d9e05686778019b02ee01bb2edb4ef2fd5
+  checksum: 0725bd8ea264d13565222b38ef55e482c18e5aa6a5cafdd6e66163d5c7e7258f1f52cb6cea642c43459caae9f51b3b36e2576cee2caed937c5a080d4bba8aec0
   languageName: node
   linkType: hard
 
@@ -1347,10 +1348,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"picomatch@npm:>=4.0.5":
-  version: 4.0.5
-  resolution: "picomatch@npm:4.0.5"
-  checksum: 8bad770af9dcdb7f94ad1a893adcbe08a97d75a18872f8fed37161d3124217471c402b3929f051532f795f4ff2e53dcebb1644df4c1a5f3a9c476fef3b9f8c51
+"picomatch@npm:>=4.0.7":
+  version: 4.0.7
+  resolution: "picomatch@npm:4.0.7"
+  checksum: 66e1df34bc39c72fa3756be4069f7887ea3e35e94bba1c3f6167763007698cb04b8a0a365161d186fda6e9571a2d3efb606b2966eb6a7dea6252911224dc2f48
   languageName: node
   linkType: hard
 
@@ -1688,8 +1689,8 @@ __metadata:
   linkType: hard
 
 "ws@npm:^8.17.0":
-  version: 8.21.1
-  resolution: "ws@npm:8.21.1"
+  version: 8.21.3
+  resolution: "ws@npm:8.21.3"
   peerDependencies:
     bufferutil: ^4.0.1
     utf-8-validate: ">=5.0.2"
@@ -1698,7 +1699,7 @@ __metadata:
       optional: true
     utf-8-validate:
       optional: true
-  checksum: 8493bc543072763d7bacffb2282c9d7954dc5c599c9df4c2d15f91c217f63e293a33ffc70756e3f2bf8c5d85bc6069ad7d9983c382d4713c807b083ffb1b1719
+  checksum: 8856922c26fd2d106931c16310d9a0bc2d6d37ed8771352bfa0d2a36df0ab5cb1f6528c6db8213f3333cf4ce93925e56f13604df0454cb0d4289fef922bebcdd
   languageName: node
   linkType: hard
 
