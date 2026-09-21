@@ -24,9 +24,9 @@
     "nodemon": "^3.1.14"
   },
   "resolutions": {
-    "undici": "6.24.0",
+    "undici": "6.28.0",
     "minimatch": "9.0.7",
-    "tar": "7.5.11",
+    "tar": "7.5.21",
     "picomatch": ">=4.0.7"
   }
 }
