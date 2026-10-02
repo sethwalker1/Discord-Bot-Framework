@@ -1,7 +1,7 @@
 /**
  * Imports
  */
-import { config } from '@dotenvx/dotenvx';
+import { config } from 'dotenv';
 import fs from 'fs';
 import path from 'path';
 import * as Sentry from '@sentry/node';
